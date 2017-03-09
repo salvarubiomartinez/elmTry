@@ -55,8 +55,6 @@ update msg model =
     Update comment id ->
         let
             updateComment comm= if comm.id == id then {comm | content = comment} else comm  
-            filteredComments = List.filter (\ item -> not <| item.id == id)  model.comments
-            updatedComment = Comment id comment
         in
             { model | comments = List.map updateComment model.comments, updateComment = ""}
     Delete id ->
